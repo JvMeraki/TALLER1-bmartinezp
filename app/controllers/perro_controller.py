@@ -1,6 +1,7 @@
 from flask import make_response, render_template
 from flask_restful import Resource
-from models.perro import Perro
+
+from app.models.perro import Perro
 
 
 class PerroController(Resource):

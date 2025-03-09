@@ -1,6 +1,7 @@
 from flask import make_response, render_template
 from flask_restful import Resource
-from models.guarderia import Guarderias
+
+from app.models.guarderia import Guarderias
 
 
 class GuarderiaController(Resource):

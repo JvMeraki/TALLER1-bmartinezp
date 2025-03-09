@@ -1,4 +1,4 @@
-from config.db import db
+from app.config.db import db
 
 
 class Perro(db.Model):

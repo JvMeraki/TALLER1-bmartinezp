@@ -1,6 +1,7 @@
 from flask import make_response, render_template
 from flask_restful import Resource
-from models.cuidador import Cuidador
+
+from app.models.cuidador import Cuidador
 
 
 class CuidadorController(Resource):

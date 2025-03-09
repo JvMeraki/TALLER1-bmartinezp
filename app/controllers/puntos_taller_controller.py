@@ -1,9 +1,10 @@
-from config.db import db
 from flask import make_response, redirect, render_template, request, url_for
 from flask_restful import Resource
-from models.cuidador import Cuidador
-from models.guarderia import Guarderias
-from models.perro import Perro
+
+from app.config.db import db
+from app.models.cuidador import Cuidador
+from app.models.guarderia import Guarderias
+from app.models.perro import Perro
 
 
 class PuntosTallerController(Resource): 

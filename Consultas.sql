@@ -1,5 +1,5 @@
 -- Query para insertar datos a tabla GUARDERIAS 
-INSERT INTO `TABLAS`.`GUARDERIAS` (`ID`, `Nombre`, `Direccion`, `Telefono`) VALUES
+INSERT INTO `GUARDERIAS` (`ID`, `Nombre`, `Direccion`, `Telefono`) VALUES
 (1, 'Guarderia Sol', 'Avenida Libertad 123', '555-1234567'),
 (2, 'Guarderia Luna', 'Calle 456', '555-2345678'),
 (3, 'Guarderia Estrella', 'Calle del Sol 789', '555-3456789'),
@@ -12,11 +12,10 @@ INSERT INTO `TABLAS`.`GUARDERIAS` (`ID`, `Nombre`, `Direccion`, `Telefono`) VALU
 (10, 'Guarderia Patitas', 'Calle de la Alegria 87', '555-0123456'),
 (11, 'La Favorita', 'Calle Falsa 123', '555- 2175345');
 -- Query para consultar datos insertados
-SELECT * FROM TABLAS.GUARDERIAS;
-
+SELECT * FROM guarderias;
 
 -- Query para insertar datos a tabla CUIDADOR
-INSERT INTO `TABLAS`.`CUIDADOR` (`ID`, `Nombre`, `Telefono`, `ID_GUARDERIA`) VALUES
+INSERT INTO `cuidador` (`ID`, `Nombre`, `Telefono`, `ID_GUARDERIA`) VALUES
 (1, 'Juan Perez', '555-1112233', 1),
 (2, 'Ana Gomez', '555-2223344', 2),
 (3, 'Pedro Rodriguez', '555-3334455', 3),
@@ -34,10 +33,10 @@ INSERT INTO `TABLAS`.`CUIDADOR` (`ID`, `Nombre`, `Telefono`, `ID_GUARDERIA`) VAL
 (15, 'Patricia Jimenez', '555-6566677', 5),
 (16, 'Mario', '555-1231236', 11);
 -- Query para consultar datos insertados
-SELECT * FROM TABLAS.CUIDADOR;
+SELECT * FROM cuidador;
 
 -- QUERY Para insertar datos a tabla PERRO
-INSERT INTO `TABLAS`.`PERRO` (`ID`, `Nombre`, `Raza`, `Edad`, `ID_GUARDERIA`, `ID_CUIDADOR`) VALUES
+INSERT INTO `PERRO` (`ID`, `Nombre`, `Raza`, `Edad`, `ID_GUARDERIA`, `ID_CUIDADOR`) VALUES
 (1, 'Rex', 'Labrador', 5, 1, 1),
 (2, 'Bella', 'Poodle', 3, 1, 1),
 (3, 'Max', 'Beagle', 4, 2, 2),
@@ -99,29 +98,29 @@ INSERT INTO `TABLAS`.`PERRO` (`ID`, `Nombre`, `Raza`, `Edad`, `ID_GUARDERIA`, `I
 (59, 'Lily', 'Bulldog Francés', 1, 10, 10),
 (60, 'Simba', 'Golden Retriever', 5, 1, 11);
 -- Query para consultar datos insertados
-SELECT * FROM TABLAS.PERRO;
+SELECT * FROM PERRO;
 
 
 -- Taller
-SELECT * FROM TABLAS.GUARDERIAS;
-SELECT * FROM TABLAS.CUIDADOR WHERE ID = 16;
-SELECT * FROm TABLAS.PERRO WHERE ID_CUIDADOR = 13;
+SELECT * FROM GUARDERIAS;
+SELECT * FROM CUIDADOR WHERE ID = 16;
+SELECT * FROm PERRO WHERE ID_CUIDADOR = 13;
 
 -- Punto 1
-SELECT * FROM TABLAS.PERRO WHERE Nombre = 'Lassie';
+SELECT * FROM PERRO WHERE Nombre = 'Lassie';
 
 
 SET SQL_SAFE_UPDATES = 0;
 
 -- Punto 2
-UPDATE TABLAS.PERRO 
+UPDATE PERRO 
 SET ID_CUIDADOR = 16
 WHERE Peso < 3 AND ID_GUARDERIA = 11;
 
-SELECT * FROm TABLAS.PERRO WHERE Peso < 3 AND ID_GUARDERIA = 11;
+SELECT * FROm PERRO WHERE Peso < 3 AND ID_GUARDERIA = 11;
 
 
-SELECT * FROM TABLAS.GUARDERIAS WHERE Nombre = 'La Favorita';
-SELECT * FROM TABLAS.CUIDADOR WHERE ID_GUARDERIA = 11;
-SELECT * FROM TABLAS.PERRO WHERE ID_GUARDERIA = 11;
+SELECT * FROM GUARDERIAS WHERE Nombre = 'La Favorita';
+SELECT * FROM CUIDADOR WHERE ID_GUARDERIA = 11;
+SELECT * FROM PERRO WHERE ID_GUARDERIA = 11;
 
