@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestros Usuarios</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div id="bienvenida">
+    <h1>Bienvenido,</h1>
+    <p>Esta es solo una página de bienvenida, utilice los botones para navegar a las diferentes pantallas:</p><br>
+    <a href="/perros"><button>Perros</button></a>
+    <a href="/cuidadores"><button>Cuidadores</button></a>
+    <a href="/guarderias"><button>Guarderias</button></a>
+    <br><br>
+    <h1>Puntos Taller II - Modulo 2</h1>
+    <p>Estos son los resultados del Ejercicio propuesto, para reavisar las respuestas pulse el botón "Ejecutar ejercicios", acto seguido se actualizarán los valores con la información solicitada</p>
+
+    <h2>Punto 1 | Lassie</h2>
+    {% if lassies %}
+      <p>Se encontraron <strong>{{ lassies|length }}</strong> perros llamados Lassie:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Guardería</th>
+            <th>Cuidador</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for perro in lassies %}
+          <tr>
+            <td>{{ perro.id }}</td>
+            <td>{{ perro.nombre }}</td>
+            <td>{{ perro.guarderia }}</td>
+            <td>{{ perro.cuidador }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No hay perros llamados Lassie en las guarderías.</p>
+    {% endif %}
+    
+    <br>
+
+    <h2>Punto 2 | Los perros de Mario</h2>
+    {% if perros_mario %}
+      <p>Mario tiene <strong>{{ perros_mario|length }}</strong> perros asignados que pesan menos de 3kg:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Peso (kg)</th>
+            <th>Guardería</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for perro in perros_mario %}
+          <tr>
+            <td>{{ perro.id }}</td>
+            <td>{{ perro.nombre }}</td>
+            <td>{{ perro.peso }}</td>
+            <td>{{ perro.guarderia }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No hay perros menores de 3 kg que asignar a Mario.</p>
+    {% endif %}
+    
+    <br>
+      
+    <br>
+    <form action="/puntos_taller" method="POST">
+      <button>Ejecutar ejercicios</button>
+    </form> <br>
+    <a href="/"><button>Reset</button></a>
+
+    <button id="modo-nocturno-btn" onclick="toggleModoNocturno()">Modo Nocturno</button>
+  </div>
+  <script>
+    function toggleModoNocturno() {
+        document.body.classList.toggle('noche');
+    }
+  </script>
+</body>
+</html>

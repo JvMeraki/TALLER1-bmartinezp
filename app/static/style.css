@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#bienvenida {
+    text-align: center;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.noche {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+h1 {
+    font-size: clamp(1rem, calc(4vw + 1rem), 5rem);
+    color: #333;
+    padding-bottom: 20px;
+    text-align: center;
+    transition: color 0.5s ease;
+}
+
+body.noche h1 {
+    color: #ecf0f1;
+}
+
+p {
+    color: #555;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    transition: color 0.3s ease;
+}
+
+body.noche p {
+    color: #bdc3c7;
+}
+
+strong {
+    color: #e74c3c;
+}
+
+body.noche strong {
+    color: #f39c12;
+}
+
+.contador {
+    font-size: 1.4rem;
+    color: #f39c12;
+    padding: 15px;
+    text-align: center;
+}
+
+.contador strong {
+    color: #333;
+}
+
+#modo-nocturno-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 1000;
+    transition: none;
+}
+
+button {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 1000;
+    transition: none;
+}
+
+body.noche #modo-nocturno-btn {
+    background-color: #f39c12;
+    color: #2c3e50;
+}
+
+body.noche button {
+    background-color: #f39c12;
+    color: #2c3e50;
+}
+
+.perros-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.noche .perros-info {
+    background-color: #34495e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.noche table {
+    background-color: #34495e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #34495e;
+    color: #ecf0f1;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+body.noche th {
+    background-color: #f39c12;
+    color: #2c3e50;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.2s ease-in-out;
+}
+
+body.noche tr:hover {
+    background-color: #2c3e50;
+}
+
+td {
+    color: #333;
+}
+
+body.noche td {
+    color: #ecf0f1;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+    th, td {
+        padding: 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .contador {
+        font-size: 1.2rem;
+    }
+
+    .perros-info p {
+        font-size: 1rem;
+    }
+}
