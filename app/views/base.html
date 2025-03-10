@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Guardería{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="">
+  <div id="contenido">
+    {% block content %}{% endblock %}
+  </div>
+
+  <button id="modo-nocturno-btn" onclick="toggleModoNocturno()">Modo Nocturno</button>
+
+  <script>
+    function toggleModoNocturno() {
+        document.body.classList.toggle('noche');
+        localStorage.setItem('modoNocturno', document.body.classList.contains('noche'));
+    }
+
+    // Mantener el modo nocturno entre páginas
+    window.onload = function() {
+        if (localStorage.getItem('modoNocturno') === 'true') {
+            document.body.classList.add('noche');
+        }
+    }
+  </script>
+</body>
+</html>

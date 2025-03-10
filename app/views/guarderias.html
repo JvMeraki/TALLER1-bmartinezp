@@ -1,25 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info Guarderias</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Información de las guarderias</h1>
-        <p class="contador">Actualmente hay <strong>{{contador_guarderias}}</strong> guarderias.</p>
-        <a href="/"><button id="volver" class="btn">Volver</button></a>
-        <div class="perros-info">
-            {{ guarderias_info | safe }}
-        </div>
+{% extends 'base.html' %}
+
+{% block title %}Info Guarderías{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Información de las guarderías</h1>
+    <p class="contador">Actualmente hay <strong>{{ contador_guarderias }}</strong> guarderías.</p>
+    <a href="/"><button id="volver" class="btn">Volver</button></a>
+    <div class="perros-info">
+        {{ guarderias_info | safe }}
     </div>
-    <button id="modo-nocturno-btn" onclick="toggleModoNocturno()">Modo Nocturno</button>
-    <script>
-        function toggleModoNocturno() {
-            document.body.classList.toggle('noche');
-        }
-    </script>
-</body>
-</html>
+</div>
+{% endblock %}

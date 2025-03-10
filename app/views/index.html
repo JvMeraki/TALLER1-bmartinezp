@@ -1,21 +1,32 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuestros Usuarios</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Nuestros Usuarios{% endblock %}
+
+{% block content %}
   <div id="bienvenida">
-    <h1>Bienvenido,</h1>
+    <h1>Bienvenido, {{ current_user.username }}</h1>
     <p>Esta es solo una página de bienvenida, utilice los botones para navegar a las diferentes pantallas:</p><br>
-    <a href="/perros"><button>Perros</button></a>
+    
+    {% if current_user.is_authenticated and current_user.is_admin %}
+      <a href="/perros"><button>Perros</button></a>
+    {% else %}
+      <p style="color: red;">No tienes permiso para visualizar la sección de Perros.</p>
+    {% endif %}
+    
     <a href="/cuidadores"><button>Cuidadores</button></a>
     <a href="/guarderias"><button>Guarderias</button></a>
+    
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('auth.logout') }}"><button>Cerrar sesión</button></a>
+    {% else %}
+      <a href="/auth/login"><button>Iniciar sesión</button></a>
+      <a href="/auth/register"><button>Registrarse</button></a>
+    {% endif %}
+    
     <br><br>
+
     <h1>Puntos Taller II - Modulo 2</h1>
-    <p>Estos son los resultados del Ejercicio propuesto, para reavisar las respuestas pulse el botón "Ejecutar ejercicios", acto seguido se actualizarán los valores con la información solicitada</p>
+    <p>Estos son los resultados del Ejercicio propuesto, para revisar las respuestas pulse el botón "Ejecutar ejercicios", acto seguido se actualizarán los valores con la información solicitada</p>
 
     <h2>Punto 1 | Lassie</h2>
     {% if lassies %}
@@ -74,19 +85,10 @@
     {% endif %}
     
     <br>
-      
-    <br>
+    
     <form action="/puntos_taller" method="POST">
       <button>Ejecutar ejercicios</button>
     </form> <br>
     <a href="/"><button>Reset</button></a>
-
-    <button id="modo-nocturno-btn" onclick="toggleModoNocturno()">Modo Nocturno</button>
   </div>
-  <script>
-    function toggleModoNocturno() {
-        document.body.classList.toggle('noche');
-    }
-  </script>
-</body>
-</html>
+{% endblock %}
